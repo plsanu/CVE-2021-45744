@@ -13,11 +13,17 @@
 A Stored Cross Site Scripting (XSS) vulnerability exists in bludit 3.13.1 via the TAGS section in login panel. Application stores attacker injected dangerous JavaScript in to the database and executes without validating.
 
 ### Exploit:
-1. Login to the admin panel http://localhost/admin
+1. Login to the admin panel - http://localhost/admin
 2. Navigate to New content section.
 3. Enter the title of the post Ex:test
 4. Click on the Options button.
-5. Navigate to Advanced tab and inject the payload "><script>alert("XSS")</script> in TAGS section.
+5. Navigate to Advanced tab and inject the below payload in TAGS section.
+
+### Payload:
+```html
+"><script>alert("XSS")</script>
+```
+
 6. Click on Save button.
 7. Open the post(test).
 8. Malicious javascript code triggered.
